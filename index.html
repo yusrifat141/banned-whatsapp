@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>banned-whatsapp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after { 
+        box-sizing: border-box; 
+    }
+
+    body, input, textarea, button, label, h2, h3, .footer-note {
+        font-weight: bold !important;
+    }
+
+    body{
+        margin:0;
+        padding:0;
+        background:#000;
+        color:#ff3366;
+        font-family:'Orbitron','Consolas',monospace;
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        overflow:auto;
+    }
+    .container{
+        width:300px;
+        background:rgba(20,0,10,.9);
+        border:1px solid #ff3366;
+        border-radius:10px;
+        padding:12px;
+        box-shadow:0 0 14px rgba(255,51,102,.4),
+                   inset 0 0 10px rgba(255,51,102,.1);
+        backdrop-filter:blur(6px);
+        position:relative;
+        overflow:hidden;
+    }
+    .container::before{
+        content:'';
+        position:absolute;
+        top:0;left:0;right:0;
+        height:2px;
+        background:linear-gradient(90deg,transparent,#ff3366,transparent);
+        box-shadow:0 0 8px #ff3366;
+    }
+
+    h2{
+        text-align:center;
+        font-size:15px;
+        letter-spacing:1.5px;
+        color:#ff3366;
+        font-weight: 900 !important;
+        text-shadow:
+            0 0 10px #ff3366,
+            0 0 2:2px #ff0033,
+            0 0 3px #cc0033;
+        margin:0 0 12px;
+        text-transform:uppercase;
+    }
+
+    .input-group{
+        margin-bottom:10px;
+    }
+    .input-group label{
+        display:block;
+        font-size:10px;
+        color:#ff6699;
+        margin-bottom:4px;
+        text-transform:uppercase;
+        letter-spacing:.8px;
+    }
+    textarea, input[type=number], input[type=text]{
+        width:100%;
+        background:rgba(30,0,15,.7);
+        border:1px solid #ff3366;
+        color:#ff6699;
+        padding:7px 9px;
+        border-radius:6px;
+        outline:none;
+        font-family:'Orbitron',monospace;
+        font-size:11px;
+        transition:.2s;
+    }
+    textarea{
+        height:60px;
+        resize:none;
+        margin-bottom:10px;
+    }
+    input[type=number]{
+        height:32px;
+    }
+    input::placeholder, textarea::placeholder {
+        color: #ff6699;
+        opacity: 0.6;
+        font-style: normal;
+    }
+    .btn-group{
+        display:flex;
+        gap:6px;
+        margin:12px 0 10px;
+    }
+    button{
+        flex:1;
+        padding:8px 0;
+        background:linear-gradient(145deg,#ff3366,#cc0033);
+        color:#fff;
+        font-size:11px;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+        transition:.3s;
+        text-transform:uppercase;
+        letter-spacing:.8px;
+        box-shadow:0 0 10px rgba(255,51,102,.5);
+    }
+    button:hover{
+        background:linear-gradient(145deg,#ff6699,#ff0033);
+        box-shadow:0 0 15px rgba(255,51,102,.8);
+        transform:translateY(-1px);
+    }
+    #stopBtn{
+        background:linear-gradient(145deg,#cc0033,#990022);
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    #stopBtn.active{
+        opacity: 1;
+        cursor: pointer;
+    }
+    #stopBtn:hover{
+        background:linear-gradient(145deg,#ff0033,#cc0033);
+        box-shadow:0 0 15px rgba(255,0,51,.8);
+    }
+    .log-section h3{
+        font-size:11px;
+        color:#ff6699;
+        text-align:center;
+        margin:0 0 6px;
+        text-transform:uppercase;
+        letter-spacing:1.2px;
+        text-shadow:0 0 6px #ff3366;
+    }
+    .log-box{
+        background:rgba(15,0,8,.8);
+        border:1px solid #ff3366;
+        padding:8px;
+        border-radius:6px;
+        height:100px;
+        overflow-y:auto;
+        color:#ff6699;
+        font-size:10px;
+        line-height:1.4;
+        white-space:pre-line;
+        box-shadow:inset 0 0 8px rgba(0,0,0,.6);
+    }
+    .footer-note{
+        margin-top:10px;
+        font-size:9px;
+        color:#ff6699;
+        text-align:center;
+        opacity:.8;
+        line-height:1.3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>BANNED WHATSAPP</h2>
+
+    <div class="input-group">
+        <label>Nomor Target</label>
+        <input type="text" id="targetNumber" placeholder="+628-XXXX-XXXX">
+    </div>
+
+    <div class="input-group">
+        <label>Masukkan method</label>
+        <textarea id="reportText" placeholder="Masukkan method anda"></textarea>
+    </div>
+
+    <!-- INPUT DELAY DIHAPUS -->
+
+    <div class="input-group">
+        <label>Jumlah kirim</label>
+        <input type="number" id="countInput" placeholder="Masukkan jumlah">
+    </div>
+
+    <div class="btn-group">
+        <button onclick="startReport()">RUN METHOD</button>
+        <button id="stopBtn" onclick="stopReport()">STOP</button>
+    </div>
+
+    <div class="log-section">
+        <h3>Log History</h3>
+        <div class="log-box" id="logBox">Log belum ada.</div>
+    </div>
+
+    <div class="footer-note">
+        @created by yusrifat
+    </div>
+</div>
+
+<script>
+let stopFlag = false;
+let isRunning = false;
+
+// === DELAY DIPAKSA 1 DETIK (1000ms) ===
+const DELAY_MS = 1000;
+
+function log(msg) {
+    const box = document.getElementById("logBox");
+    const ts = new Date().toLocaleTimeString();
+    box.innerHTML += `[${ts}] ${msg}\n`;
+    box.scrollTop = box.scrollHeight;
+}
+
+function stopReport() {
+    if (!isRunning) return;
+    stopFlag = true;
+    log("STOP SIGNAL — proses dihentikan.");
+    isRunning = false;
+    document.getElementById("stopBtn").classList.remove("active");
+}
+
+async function startReport() {
+    if (isRunning) return;
+
+    stopFlag = false;
+    isRunning = true;
+    document.getElementById("stopBtn").classList.add("active");
+
+    const box = document.getElementById("logBox");
+    box.innerHTML = "";
+
+    const text = document.getElementById("reportText").value.trim();
+    const targetInput = document.getElementById("targetNumber").value.trim();
+    const countInput = document.getElementById("countInput").value;
+    const count = countInput === "" ? 0 : parseInt(countInput);
+
+    if (!targetInput) { isRunning = false; document.getElementById("stopBtn").classList.remove("active"); return log("ERROR: Nomor target kosong!"); }
+    if (!text) { isRunning = false; document.getElementById("stopBtn").classList.remove("active"); return log("ERROR: Text kosong!"); }
+    if (countInput === "" || count < 1) { isRunning = false; document.getElementById("stopBtn").classList.remove("active"); return log("ERROR: Masukkan jumlah kirim (minimal 1)!"); }
+
+    const cleanTarget = targetInput.replace(/\D/g, '');
+    if (!cleanTarget.startsWith('62')) {
+        isRunning = false; document.getElementById("stopBtn").classList.remove("active");
+        return log("ERROR: Nomor HARUS diawali 62!");
+    }
+    if (cleanTarget.length < 12 || cleanTarget.length > 13) {
+        isRunning = false; document.getElementById("stopBtn").classList.remove("active");
+        return log("ERROR: Nomor tidak valid! Harus 12-13 digit.");
+    }
+
+    log(`Target divalidasi: ${cleanTarget}`);
+    log(`Jumlah kirim: ${count} kali`);
+    log("Menghubungkan ke server...");
+    await new Promise(r => setTimeout(r, 500));
+
+    for (let i = 1; i <= count; i++) {
+        if (stopFlag) {
+            log("PROSES DIBATALKAN.");
+            isRunning = false;
+            document.getElementById("stopBtn").classList.remove("active");
+            return;
+        }
+
+        log(`Menunggu ${DELAY_MS}ms... [${i}/${count}]`);
+        await new Promise(r => setTimeout(r, DELAY_MS));
+
+        log(`Mengirim laporan ke-${i} → Target: ${cleanTarget}`);
+
+        try {
+            const res = await fetch("/api/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text, target: cleanTarget })
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                log(`SUCCESS: Laporan ${i} terkirim!`);
+            } else {
+                log(`FAILED: Gagal — ${data.message || 'Unknown'}`);
+            }
+
+        } catch {
+            log("ERROR: Server tidak respons.");
+            isRunning = false;
+            document.getElementById("stopBtn").classList.remove("active");
+            return;
+        }
+    }
+
+    log("SELESAI — Semua laporan terkirim.");
+    isRunning = false;
+    document.getElementById("stopBtn").classList.remove("active");
+}
+</script>
+</body>
+  </html>
