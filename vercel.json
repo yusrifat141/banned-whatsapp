@@ -1,15 +1,15 @@
 {
-  "framework": "static",
+  "version": 2,
   "builds": [
     {
-      "src": "pages/api/**/*.js",
+      "src": "pages/api/send.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/pages/api/$1.js"
+      "src": "/api/send",
+      "dest": "/pages/api/send.js"
     },
     {
       "src": "/favicon.ico",
