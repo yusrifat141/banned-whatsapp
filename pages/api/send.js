@@ -15,7 +15,7 @@ export default async function handler(req, res) {
         });
     }
 
-    const apiKey = "xsmtpsib-94185f5b595783b5ade8c49cd0a85d7b19a4add080d46598adf7f04192dce1fb-zZmtqZFZrcACrARp";
+    const apiKey = process.env.BREVO_API_KEY;
 
     const whatsappSupport = "support@support.whatsapp.com";
 
