@@ -73,7 +73,7 @@ export default async function handler(req, res) {
         if (sendRes.status === 401 || data?.code === 'unauthorized') {
             return res.status(401).json({
                 success: false,
-                message: "API key Salah, tidak valid, atau expired! Pastikan ENV dan key benar."
+                message: "Apikey not found"
             });
         }
         if (sendRes.ok) {
