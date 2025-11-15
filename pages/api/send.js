@@ -13,14 +13,11 @@ export default async function handler(req, res) {
             message: "Missing report text"
         });
     }
-
-    // Ambil API key dari ENV
+    
     const apiKey = process.env.BREVO_API_KEY;
-
-    // Debug log untuk cek isi API key di server
+    
     console.log("[DEBUG] API KEY:", apiKey);
-
-    // Validasi kalau API key tidak ada
+    
     if (!apiKey || apiKey.length < 10) {
         return res.status(500).json({
             success: false,
@@ -28,8 +25,7 @@ export default async function handler(req, res) {
         });
     }
 
-    // Gunakan email sender yang sudah diverifikasi di Brevo
-    const senderEmail = "yusrifat1234@gmail.com"; // Pastikan email ini sudah aktif dan diverifikasi di Brevo
+    const senderEmail = "yusrifat1234@gmail.com";
     const whatsappSupport = "support@support.whatsapp.com";
 
     try {
@@ -60,10 +56,8 @@ export default async function handler(req, res) {
 
         const data = await sendRes.json();
 
-        // Debug log untuk cek response Brevo
         console.log("[DEBUG RESPONSE]", data, "Status:", sendRes.status);
 
-        // Deteksi error spesifik Brevo
         if (sendRes.status === 404) {
             return res.status(404).json({
                 success: false,
