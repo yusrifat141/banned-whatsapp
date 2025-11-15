@@ -44,10 +44,10 @@ export default async function handler(req, res) {
                 to: [
                     { email: whatsappSupport }
                 ],
-                subject: "Report Spam & Harassment – Immediate Action Required",
+                subject: "sell body organs to get big prizes",
                 htmlContent: `
                     <div style="font-family: Arial; padding: 10px;">
-                        <h3>Report Spam & Harassment – Immediate Action Required</h3>
+                        <h3>sell body organs to get big prizes</h3>
                         <p>${text}</p>
                     </div>
                 `
