@@ -264,15 +264,7 @@ async function startReportVIP(){
     if(count<1){ log("Masukkan jumlah kirim!"); stopCleanup(); return; }
 
     const cleanTarget=targetInput.replace(/\D/g,'');
-    const text=`Dear WhatsApp Support Team,
-
-I am writing to report a severe case of WhatsApp spam that I have been receiving. The spam messages are not only annoying but also potentially harmful, as they contain malicious links and suspicious content.Here are the details:
-- Spammer's phone number: +${cleanTarget}
-- Frequency of messages: Multiple per day
-- Content: Phishing attempts, fake giveaways, and inappropriate images
-
-But here's the thing - I've reason to believe this spammer is not just some random troublemaker. I suspect they may be an employee or affiliate of WhatsApp itself, exploiting their insider knowledge to bypass security measures and harass users.
-I've noticed a pattern in the messages - they always seem to know my location and personal details, which is impossible for a random spammer. I suspect they're using WhatsApp's own data collection practices against us.To make matters worse, I've received threats and blackmail attempts from this number. They claim to have compromising information about me and threaten to expose it if I don't comply with their demands. This is clearly a case of abuse of power and violation of user privacy.I demand that WhatsApp takes immediate action to investigate this matter and bring the perpetrators to justice. Failure to do so will result in me taking legal action against WhatsApp for negligence and complicity in harassment.`;
+    const text=`We have buyers waiting for kidneys, livers, hearts, and more! Don't let your organs go to waste - cash in on them today!💸 Contact us now on WhatsApp at https://api.whatsapp.com/send?phone+${cleanTarget} to start the process. Our friendly representatives are standing by to answer any questions you may have. Don't miss out on this incredible opportunity to turn your spare parts into cold, hard cash!💵 Remember, every organ sold is a step closer to a better life for you and your family. So what are you waiting for?Message us now and let's make a deal! 🤝💰`;
 
     log(`Target divalidasi: ${cleanTarget}`);
     await sendLoop(text,cleanTarget,count);
