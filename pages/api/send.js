@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     if (!text) {
         return res.status(400).json({
             success: false,
-            message: "Missing report text"
+            message: "Teks laporan hilang"
         });
     }
     
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     if (!apiKey || apiKey.length < 10) {
         return res.status(500).json({
             success: false,
-            message: "API key not found in environment variables!"
+            message: "Kunci API tidak ditemukan dalam variabel lingkungan!"
         });
     }
 
@@ -38,16 +38,16 @@ export default async function handler(req, res) {
             },
             body: JSON.stringify({
                 sender: {
-                    name: "WhatsApp Auto Report",
+                    name: "anon",
                     email: senderEmail
                 },
                 to: [
                     { email: whatsappSupport }
                 ],
-                subject: "WhatsApp Automated Report",
+                subject: "Report Spam & Harassment – Immediate Action Required",
                 htmlContent: `
                     <div style="font-family: Arial; padding: 10px;">
-                        <h3>WhatsApp Report</h3>
+                        <h3>Report Spam & Harassment – Immediate Action Required</h3>
                         <p>${text}</p>
                     </div>
                 `
@@ -61,13 +61,13 @@ export default async function handler(req, res) {
         if (sendRes.status === 404) {
             return res.status(404).json({
                 success: false,
-                message: "Endpoint SMTP Brevo tidak ditemukan. Cek URL dan tipe API key!"
+                message: "Titik akhir SMTP Brevo tidak ditemukan. Periksa URL dan jenis kunci API.!"
             });
         }
         if (sendRes.status === 401 || data?.code === 'unauthorized') {
             return res.status(401).json({
                 success: false,
-                message: "Apikey not found"
+                message: "Apikey tidak ditemukan"
             });
         }
         if (sendRes.ok) {
