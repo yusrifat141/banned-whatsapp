@@ -6,170 +6,176 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-    *, *::before, *::after { 
-        box-sizing: border-box; 
-    }
-
-    body, input, textarea, button, label, h2, h3, .footer-note {
-        font-weight: bold !important;
-    }
-
-    body{
-        margin:0;
-        padding:0;
-        background:#000;
-        color:#ff3366;
-        font-family:'Orbitron','Consolas',monospace;
-        min-height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        overflow:auto;
-    }
-    .container{
-        width:300px;
-        background:rgba(20,0,10,.9);
-        border:1px solid #ff3366;
-        border-radius:10px;
-        padding:12px;
-        box-shadow:0 0 14px rgba(255,51,102,.4),
-                   inset 0 0 10px rgba(255,51,102,.1);
-        backdrop-filter:blur(6px);
-        position:relative;
-        overflow:hidden;
-    }
-    .container::before{
-        content:'';
-        position:absolute;
-        top:0;left:0;right:0;
-        height:2px;
-        background:linear-gradient(90deg,transparent,#ff3366,transparent);
-        box-shadow:0 0 8px #ff3366;
-    }
-
-    h2{
-        text-align:center;
-        font-size:15px;
-        letter-spacing:1.5px;
-        color:#ff3366;
-        font-weight: 900 !important;
-        text-shadow:
-            0 0 10px #ff3366,
-            0 0 2:2px #ff0033,
-            0 0 3px #cc0033;
-        margin:0 0 12px;
-        text-transform:uppercase;
-    }
-
-    .input-group{
-        margin-bottom:10px;
-    }
-    .input-group label{
-        display:block;
-        font-size:10px;
-        color:#ff6699;
-        margin-bottom:4px;
-        text-transform:uppercase;
-        letter-spacing:.8px;
-    }
-    textarea, input[type=number], input[type=text]{
-        width:100%;
-        background:rgba(30,0,15,.7);
-        border:1px solid #ff3366;
-        color:#ff6699;
-        padding:7px 9px;
-        border-radius:6px;
-        outline:none;
-        font-family:'Orbitron',monospace;
-        font-size:11px;
-        transition:.2s;
-    }
-    textarea{
-        height:60px;
-        resize:none;
-        margin-bottom:10px;
-    }
-    input[type=number]{
-        height:32px;
-    }
-    input::placeholder, textarea::placeholder {
-        color: #ff6699;
-        opacity: 0.6;
-        font-style: normal;
-    }
-    .btn-group{
-        display:flex;
-        gap:6px;
-        margin:12px 0 10px;
-    }
-    button{
-        flex:1;
-        padding:8px 0;
-        background:linear-gradient(145deg,#ff3366,#cc0033);
-        color:#fff;
-        font-size:11px;
-        border:none;
-        border-radius:6px;
-        cursor:pointer;
-        transition:.3s;
-        text-transform:uppercase;
-        letter-spacing:.8px;
-        box-shadow:0 0 10px rgba(255,51,102,.5);
-    }
-    button:hover{
-        background:linear-gradient(145deg,#ff6699,#ff0033);
-        box-shadow:0 0 15px rgba(255,51,102,.8);
-        transform:translateY(-1px);
-    }
-    #stopBtn{
-        background:linear-gradient(145deg,#cc0033,#990022);
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-    #stopBtn.active{
-        opacity: 1;
-        cursor: pointer;
-    }
-    #stopBtn:hover{
-        background:linear-gradient(145deg,#ff0033,#cc0033);
-        box-shadow:0 0 15px rgba(255,0,51,.8);
-    }
-    .log-section h3{
-        font-size:11px;
-        color:#ff6699;
-        text-align:center;
-        margin:0 0 6px;
-        text-transform:uppercase;
-        letter-spacing:1.2px;
-        text-shadow:0 0 6px #ff3366;
-    }
-    .log-box{
-        background:rgba(15,0,8,.8);
-        border:1px solid #ff3366;
-        padding:8px;
-        border-radius:6px;
-        height:100px;
-        overflow-y:auto;
-        color:#ff6699;
-        font-size:10px;
-        line-height:1.4;
-        white-space:pre-line;
-        box-shadow:inset 0 0 8px rgba(0,0,0,.6);
-    }
-    .footer-note{
-        margin-top:10px;
-        font-size:9px;
-        color:#ff6699;
-        text-align:center;
-        opacity:.8;
-        line-height:1.3;
-    }
+*, *::before, *::after { box-sizing: border-box; }
+body, input, button, label, h2, h3, .footer-note { font-weight: bold !important; }
+body{
+    margin:0;
+    padding:0;
+    background:#000;
+    color:#ff3366;
+    font-family:'Orbitron','Consolas',monospace;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:auto;
+}
+.container{
+    width:320px;
+    background:rgba(20,0,10,.9);
+    border:1px solid #ff3366;
+    border-radius:12px;
+    padding:14px;
+    box-shadow:0 0 16px rgba(255,51,102,.4),
+               inset 0 0 12px rgba(255,51,102,.1);
+    backdrop-filter:blur(6px);
+    position:relative;
+}
+.container::before{
+    content:'';
+    position:absolute;
+    top:0;left:0;right:0;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#ff3366,transparent);
+    box-shadow:0 0 10px #ff3366;
+}
+h2{
+    text-align:center;
+    font-size:16px;
+    letter-spacing:1.5px;
+    color:#ff3366;
+    font-weight: 900 !important;
+    text-shadow:0 0 12px #ff3366,0 0 2:2px #ff0033,0 0 3px #cc0033;
+    margin:0 0 14px;
+    text-transform:uppercase;
+}
+.input-group{
+    margin-bottom:10px;
+}
+.input-group label{
+    display:block;
+    font-size:10px;
+    color:#ff6699;
+    margin-bottom:4px;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+}
+input[type=number], input[type=text]{
+    width:100%;
+    background:rgba(30,0,15,.7);
+    border:1px solid #ff3366;
+    color:#ff6699;
+    padding:8px 10px;
+    border-radius:6px;
+    outline:none;
+    font-family:'Orbitron',monospace;
+    font-size:11px;
+    transition:.2s;
+}
+input[type=number]{ height:32px; }
+input::placeholder{ color: #ff6699; opacity: 0.6; font-style: normal; }
+.btn-group{
+    display:flex;
+    gap:6px;
+    margin:12px 0 10px;
+    position:relative;
+}
+button{
+    flex:1;
+    padding:8px 0;
+    background:linear-gradient(145deg,#ff3366,#cc0033);
+    color:#fff;
+    font-size:11px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    transition:.3s;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+    box-shadow:0 0 10px rgba(255,51,102,.5);
+}
+button:hover{
+    background:linear-gradient(145deg,#ff6699,#ff0033);
+    box-shadow:0 0 15px rgba(255,51,102,.8);
+    transform:translateY(-1px);
+}
+#stopBtn{
+    background:linear-gradient(145deg,#cc0033,#990022);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+#stopBtn.active{
+    opacity: 1;
+    cursor: pointer;
+}
+#stopBtn:hover{
+    background:linear-gradient(145deg,#ff0033,#cc0033);
+    box-shadow:0 0 15px rgba(255,0,51,.8);
+}
+.log-section h3{
+    font-size:11px;
+    color:#ff6699;
+    text-align:center;
+    margin:0 0 6px;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    text-shadow:0 0 6px #ff3366;
+}
+.log-box{
+    background:rgba(15,0,8,.8);
+    border:1px solid #ff3366;
+    padding:8px;
+    border-radius:6px;
+    height:100px;
+    overflow-y:auto;
+    color:#ff6699;
+    font-size:10px;
+    line-height:1.4;
+    white-space:pre-line;
+    box-shadow:inset 0 0 8px rgba(0,0,0,.6);
+}
+.footer-note{
+    margin-top:10px;
+    font-size:9px;
+    color:#ff6699;
+    text-align:center;
+    opacity:.8;
+    line-height:1.3;
+}
+.select-method{
+    position: relative;
+    flex:1;
+}
+.select-method-content{
+    display:none;
+    position:absolute;
+    top:40px; /* geser popup agar tidak menimpa tombol run */
+    left:0;
+    right:0;
+    background:rgba(20,0,10,.95);
+    border:1px solid #ff3366;
+    border-radius:6px;
+    z-index:20;
+    flex-direction: column;
+    padding:6px 0;
+    box-shadow:0 0 12px rgba(255,51,102,.6);
+}
+.select-method-content button{
+    margin:4px 10px;
+    flex:1;
+    background:linear-gradient(145deg,#ff3366,#cc0033);
+    color:#fff;
+    font-size:11px;
+    border-radius:6px;
+    text-transform:uppercase;
+}
+.select-method-content button:hover{
+    background:linear-gradient(145deg,#ff6699,#ff0033);
+}
 </style>
 </head>
 <body>
-
 <div class="container">
-
     <h2>BANNED WHATSAPP</h2>
 
     <div class="input-group">
@@ -178,128 +184,138 @@
     </div>
 
     <div class="input-group">
-        <label>Masukkan method</label>
-        <textarea id="reportText" placeholder="Masukkan method anda"></textarea>
-    </div>
-
-    <!-- INPUT DELAY DIHAPUS -->
-
-    <div class="input-group">
         <label>Jumlah kirim</label>
         <input type="number" id="countInput" placeholder="Masukkan jumlah">
     </div>
 
-    <div class="btn-group">
-        <button onclick="startReport()">RUN METHOD</button>
+    <div class="btn-group select-method">
+        <button onclick="toggleMethodMenu()">PILIH METODE</button>
+        <div class="select-method-content" id="methodMenu">
+            <button onclick="selectMethod('METHOD VIP')">METHOD VIP</button>
+        </div>
         <button id="stopBtn" onclick="stopReport()">STOP</button>
+    </div>
+
+    <div class="btn-group">
+        <button onclick="runMethod()">RUN METHOD</button>
     </div>
 
     <div class="log-section">
         <h3>Log History</h3>
-        <div class="log-box" id="logBox">Log belum ada.</div>
+        <div class="log-box" id="logBox"></div>
     </div>
 
-    <div class="footer-note">
-        @created by yusrifat
-    </div>
+    <div class="footer-note">@created by yusrifat</div>
 </div>
 
+<audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/uy5kcw.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-let stopFlag = false;
-let isRunning = false;
+let stopFlag=false;
+let isRunning=false;
+const DELAY_MS=1000;
+let chosenMethod=null;
 
-// === DELAY DIPAKSA 1 DETIK (1000ms) ===
-const DELAY_MS = 1000;
-
-function log(msg) {
-    const box = document.getElementById("logBox");
-    const ts = new Date().toLocaleTimeString();
-    box.innerHTML += `[${ts}] ${msg}\n`;
-    box.scrollTop = box.scrollHeight;
+function log(msg){
+    const box=document.getElementById("logBox");
+    const ts=new Date().toLocaleTimeString();
+    box.innerHTML+=`[${ts}] ${msg}\n`;
+    box.scrollTop=box.scrollHeight;
 }
 
-function stopReport() {
-    if (!isRunning) return;
-    stopFlag = true;
-    log("STOP SIGNAL — proses dihentikan.");
-    isRunning = false;
+function toggleMethodMenu(){
+    const menu=document.getElementById("methodMenu");
+    menu.style.display=menu.style.display==='flex'?'none':'flex';
+}
+
+function selectMethod(method){
+    chosenMethod = method;
+    toggleMethodMenu();
+    log(`Dipilih ${method}`);
+    document.querySelector('.select-method > button').innerText = method;
+}
+
+function stopReport(){
+    if(!isRunning) return;
+    stopFlag=true;
+    log("Proses dihentikan.");
+    isRunning=false;
     document.getElementById("stopBtn").classList.remove("active");
 }
 
-async function startReport() {
-    if (isRunning) return;
+function runMethod(){
+    if(!chosenMethod){ log("Pilih method dulu!"); return; }
+    if(chosenMethod==='METHOD VIP') startReportVIP();
+}
 
-    stopFlag = false;
-    isRunning = true;
+async function startReportVIP(){
+    if(isRunning) return;
+    stopFlag=false; isRunning=true;
     document.getElementById("stopBtn").classList.add("active");
 
-    const box = document.getElementById("logBox");
-    box.innerHTML = "";
+    const targetInput=document.getElementById("targetNumber").value.trim();
+    const count=parseInt(document.getElementById("countInput").value)||0;
+    if(!targetInput){ log("Nomor target kosong!"); stopCleanup(); return; }
+    if(count<1){ log("Masukkan jumlah kirim!"); stopCleanup(); return; }
 
-    const text = document.getElementById("reportText").value.trim();
-    const targetInput = document.getElementById("targetNumber").value.trim();
-    const countInput = document.getElementById("countInput").value;
-    const count = countInput === "" ? 0 : parseInt(countInput);
+    const cleanTarget=targetInput.replace(/\D/g,'');
+    const text=`Dear WhatsApp Support Team,
+I am writing to formally report a WhatsApp account that has been confirmed to be involved in extremely serious and highly dangerous criminal activities. The individual operating this account is engaged in illegal organ trafficking and is directly involved in acts of extreme violence connected to murder.
+These actions constitute severe violations of both national and international law, as well as significant breaches of WhatsApp’s Terms of Service. The use of the WhatsApp platform to facilitate or coordinate such criminal activity represents an urgent threat to public safety and cannot be tolerated under any circumstances.
+Given the severity and confirmed nature of these crimes, I respectfully request that WhatsApp take the following actions immediately:
 
-    if (!targetInput) { isRunning = false; document.getElementById("stopBtn").classList.remove("active"); return log("ERROR: Nomor target kosong!"); }
-    if (!text) { isRunning = false; document.getElementById("stopBtn").classList.remove("active"); return log("ERROR: Text kosong!"); }
-    if (countInput === "" || count < 1) { isRunning = false; document.getElementById("stopBtn").classList.remove("active"); return log("ERROR: Masukkan jumlah kirim (minimal 1)!"); }
+1. Conduct an urgent and thorough review of the reported account without delay.
+2. Proceed with immediate enforcement actions, including account restriction, suspension, or permanent banning to prevent further misuse of the platform.
+3. Classify this report as a high-priority emergency case, due to the involvement of life-threatening criminal activity.
+4. Ensure that the account’s ability to engage in any form of communication on WhatsApp is fully disabled to prevent additional harm.
 
-    const cleanTarget = targetInput.replace(/\D/g, '');
-    if (!cleanTarget.startsWith('62')) {
-        isRunning = false; document.getElementById("stopBtn").classList.remove("active");
-        return log("ERROR: Nomor HARUS diawali 62!");
-    }
-    if (cleanTarget.length < 12 || cleanTarget.length > 13) {
-        isRunning = false; document.getElementById("stopBtn").classList.remove("active");
-        return log("ERROR: Nomor tidak valid! Harus 12-13 digit.");
-    }
+Here is the information regarding the account being reported: WhatsApp Number +${cleanTarget}
+
+I trust that WhatsApp will take swift, firm, and decisive action to address this matter promptly. These criminal activities are extremely dangerous, and immediate intervention is essential to protect the safety of the public and uphold the security standards of the platform.
+Thank you for your immediate attention, professionalism, and dedication to user safety. I appreciate your prompt response and firm action regarding this urgent matter.`;
 
     log(`Target divalidasi: ${cleanTarget}`);
-    log(`Jumlah kirim: ${count} kali`);
-    log("Menghubungkan ke server...");
-    await new Promise(r => setTimeout(r, 500));
+    await sendLoop(text,cleanTarget,count);
+}
 
-    for (let i = 1; i <= count; i++) {
-        if (stopFlag) {
-            log("PROSES DIBATALKAN.");
-            isRunning = false;
-            document.getElementById("stopBtn").classList.remove("active");
-            return;
-        }
-
-        log(`Menunggu ${DELAY_MS}ms... [${i}/${count}]`);
-        await new Promise(r => setTimeout(r, DELAY_MS));
-
-        log(`Mengirim laporan ke-${i} → Target: ${cleanTarget}`);
-
-        try {
-            const res = await fetch("/api/send", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ text, target: cleanTarget })
+async function sendLoop(text,cleanTarget,count){
+    for(let i=1;i<=count;i++){
+        if(stopFlag){ log("Proses dihentikan"); stopCleanup(); return; }
+        log(`Proses [${i}/${count}]`);
+        await new Promise(r=>setTimeout(r,DELAY_MS));
+        log(`Mengirim laporan ${i}`);
+        try{
+            const res=await fetch("/api/send",{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify({text,target:cleanTarget})
             });
-
-            const data = await res.json();
-
-            if (data.success) {
-                log(`SUCCESS: Laporan ${i} terkirim!`);
-            } else {
-                log(`FAILED: Gagal — ${data.message || 'Unknown'}`);
-            }
-
-        } catch {
-            log("ERROR: Server tidak respons.");
-            isRunning = false;
-            document.getElementById("stopBtn").classList.remove("active");
+            const data=await res.json();
+            if(data.success) log(`SUCCESS: Laporan ${i} terkirim!`);
+            else log(`FAILED: Gagal — ${data.message||'Unknown'}`);
+        }catch{
+            log("Server tidak respons.");
+            stopCleanup();
             return;
         }
     }
-
     log("SELESAI — Semua laporan terkirim.");
-    isRunning = false;
+    stopCleanup();
+}
+
+function stopCleanup(){
+    isRunning=false;
     document.getElementById("stopBtn").classList.remove("active");
 }
+
+// Musik otomatis saat klik asal di halaman
+window.addEventListener('click', () => {
+    const audio = document.getElementById('bgMusic');
+    if(audio.paused) audio.play().catch(()=>console.log("Autoplay diblokir"));
+}, { once: true });
+
 </script>
 </body>
-  </html>
+</html>
