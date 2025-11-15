@@ -30,7 +30,7 @@ export default async function handler(req, res) {
             body: JSON.stringify({
                 sender: {
                     name: "WhatsApp Auto Report",
-                    email: "no-reply@domain.com"
+                    email: "yusrifat1234@gmail.com"
                 },
                 to: [
                     { email: whatsappSupport }
