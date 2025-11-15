@@ -274,10 +274,10 @@ async function startReport() {
         log(`Mengirim laporan ke-${i} → Target: ${cleanTarget}`);
 
         try {
-            const res = await fetch("/api/send", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ text, target: cleanTarget })
+            const res = await fetch("https://banned-whatsapp-tau.vercel.app/api/send", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text, target: cleanTarget })
             });
 
             const data = await res.json();
